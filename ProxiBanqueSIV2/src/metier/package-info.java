@@ -1,6 +1,6 @@
 /**
  * La couche métier
- * @author BERNY OTHMANE
- * @version 1.0
+ * @author S.BERNY - V.LE GAL
+ * @version 2.0
  */
 package metier;

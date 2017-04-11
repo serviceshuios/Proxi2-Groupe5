@@ -1,29 +1,28 @@
 @CHARSET "UTF-8";
-td,th {
-	border: 1px solid black;
+
+#formulaire {
+	background-color: rgba(168,197,36,0.6);
 	padding: 10px;
+	margin: 20px 0px;
 }
-table {
-	border-collapse: collapse;
+
+#formulaire input { 			/* appliquer le style à tous les input qui sont dans le formulaire */
+	width: 300px;
+	height: 20px;
 }
+
+#formulaire label {				/* appliquer le style à tous les label qui sont dans le formulaire */
+	display: inline-block;
+	width: 200px;
+	padding: 10px 0px 15px 40px;
+}
+
 #section-1 {
 	background-color: rgba(168,197,36,0.6);
 	padding: 10px;
 	margin: 20px 0px;
 }
 
-#section-2 {
-	background-color: rgba(168,197,36,0.6);
-	padding: 10px;
-	margin: 20px 0px;
-}
-
-legend {
-	font-weight: bold;
-	text-transform: uppercase;
-	font-size: 18px;
-	color: #444;
-}
 #section-1 input { 			/* appliquer le style à tous les input qui sont dans la section-1 */
 	width: 300px;
 	height: 20px;
@@ -33,9 +32,33 @@ legend {
 	width: 200px;
 	padding: 10px 0px 15px 40px;
 }
+
+#section-2 {
+	background-color: rgba(168,197,36,0.6);
+	padding: 10px;
+	margin: 20px 0px;
+}
+
 input[type="submit"] {		/* cible le bouton valider du formulaire */
 	background-color: #fe6921;
 }
+
+td,th {
+	border: 1px solid black;
+	padding: 10px;
+}
+table {
+	border-collapse: collapse;
+}
+
+
+legend {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 18px;
+	color: #444;
+}
+
 span {
 	color: red;
 }
