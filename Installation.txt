@@ -1,0 +1,63 @@
+Installation du programme Proxibanquev2.
+
+1- Installer la base JAVA sur son poste de travail.
+-->Télécharger l'application JAVA:  "https://www.java.com/fr/download/"
+--> Installer JAVA.exe
+
+
+1.1- Ajouter l'application JAVA dans les variables d'environnement.
+	Suivez cette démarche:
+	--> Panneau de configuration 	--> Système 	--> Paramètres système avancés
+	--> Cliquez sur l'onglet: Paramètres système avancés 	--> Variables d'environnement
+	--> Dans la fenêtre "Variables utilisateur": Cliquez sur "Nouvelle"
+	--> Ajoutez dans "Nom de la variable": PATH
+	--> Ajouter dans "Valeur de la variable" le chemin d'accès :
+		 "C:\Program Files\Java\jre1.8.0_121\bin" 
+	--> Cliquez sur OK
+
+
+1.2- Installer Wampserver
+	-->Vérifier la version de Wndows dont vous disposez:
+		-Cliquez sur le bouton « Démarrer »
+		-Cliquez sur « Panneau de configuration »
+		-Cliquez sur « Système et sécurité »
+		-Cliquez sur « Système » 
+		-Regardez si votre systeme d'exploitation est en 32bits ou 64bits.
+	
+	-->Télécharger l'appiccation Wampserver : "http://www.wampserver.com/"
+
+	-->Installez « Wampserver » en exécutant le fichier « wampserver2.2e-…exe »
+		- Paramétrez la langue française
+		- Cliquez droit sur l’icône « Wampserver » en bas à droite de la barre des tâches 
+		- Sélectionnez le dossier « Langue » puis « french »
+		- Le programme s'installe sur "C:\wamp"
+		- Dans les fenêtres au cours de l'installation indiquer l'emplacement de votre navigateur Web favori (Microsoft Internet Exmplorer: "C:\Program Files\Internet Explorer\iexplore.exe", Google Chrome...)
+
+	--> Démarrer Wampserveur
+		- Démarrez Wampserver, faites Démarrer > Tous les programmes > Wampserver > Start Wampserver (Wampserveur s'affiche en ligne)
+		- Ouvrez "PHPMyAdmin" dans le menu de Wampserver
+		- Le navigateur web va s'ouvrir avec la page: "http://localhost/phpmyadmin/"
+		- Entrez le login: "root" puis "Exécuter"
+
+	--> Créer une nouvelle base de donnée:
+		- Cliquez sur Nouvelle base de données dans la colonne à gauche de vore fenêtre
+		- Indiquez le nom de la base: "proxibanquev2"
+		- Sélectionnez l'interclassement: "utf8_general_ci"
+		- Cliquez sur "Créer".
+		- Importer le fichier "proxibanquev2.sql" fourni dans le fichier.
+
+1.3- Installer Apache Tomcat.
+	-->Télécharger Aparche Tomcat
+	-->Dézipper le fihcier dans la racine "C:"
+
+2- Lancer Apache Tomcat.
+	Double cliquer sur le fichier cei dessous pour lancer Tomcat.
+	--> C:\apache-tomcat-9.0.0.M19\bin\startup.sh
+
+3- Mise en place du fichier .war sur le poste de travail.
+	--> Placer le fichier .war sous le chemin suivant: "C:\apache-tomcat-9.0.0.M19\webapps"
+
+
+4- Execution du programme .war
+	--> Lancez votre navigateur avec l'adresse : "http://localhost:8080/proxibanquev2"
+
