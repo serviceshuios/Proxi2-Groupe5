@@ -59,5 +59,19 @@ Installation du programme Proxibanquev2.
 
 
 4- Execution du programme .war
-	--> Lancez votre navigateur avec l'adresse : "http://localhost:8080/proxibanquev2"
+	--> Lancez votre navigateur avec l'adresse : "http://localhost:8080/proxibanquev2/index.html"
+
+
+5- Pour vous connectez, vous pouvez utiliser les logins et mot de passe suivant:
+	login 1: guy.jaffre@free.net
+	mdp 1: guyjaffre
+
+	login 2: alexdupont@yahoo.net
+	mdp 2: alexdupont
+
+	login 3: archihadd@caramail.net
+	mdp 3: archihadd
+
+	login 4: Tournesol@laposte.net
+	mdp 4: Tournesol
 
