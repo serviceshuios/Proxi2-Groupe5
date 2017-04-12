@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!-- Largeur = la largeur du device à mettre avant l'application du style -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css"/>
+		<title>Ajout d'un client</title>
+	</head>
+	
+	<body>
+		
+		<div id="content">
+		
+			<div class="block">
+			
+				<h2>Ajouter un client en base de donnée</h2>
+				
+				<form method="post" action="AjouterClientServlet">
+				
+					<fieldset id="section-1">						<!-- élément de regroupement -->
+						
+						<legend>Informations client</legend>
+						
+						<label for="nom">NOM du client :</label>
+						<input type="text" name="nom" id="nom"/><br/>
+						
+						<label for="prenom">Prénom du client :</label>
+						<input type="text" name="prenom" id="prenom"/><br/>
+						
+						<label for="age">Âge du client :</label>
+						<input type="text" name="age" id="age"/><br/>
+						
+						<label for="yeux">Couleurs des yeux du client :</label>
+						<input type="text" name="yeux" id="yeux"/><br/>
+						
+					</fieldset>
+					
+					<input type="submit" value="Ajouter"/>
+					
+				</form>
+				
+			</div>
+			
+		</div>
+		
+	</body>
+	
+</html>

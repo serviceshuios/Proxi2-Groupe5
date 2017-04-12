@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import dao.Dao;
 import dao.IDao;
-import metier.Adresse;
 import metier.Client;
 import metier.Compte;
 import metier.CompteCourant;
@@ -28,6 +27,13 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 	 * Lien vers la couche Dao
 	 */
 	private IDao idao = new Dao();
+	
+	/**
+	 * Méthode permettant à un conseiller clientele de s'authentifier
+	 */
+	public ConseillerClientele authentifier(String login, String password) {
+		return idao.authentifier(login, password);
+	}
 	
 	/**
 	 * Méthode permettant de lister les clients affectés à un conseiller clientele
@@ -61,24 +67,25 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 
 	/**
 	 * Méthode permettant de modifier un client
-	 * @param conseiller : le conseiller clientèle
-	 * @param idClient : l'identifiant du client à modifier
-	 * @param civiliteClient : la civilité du client à modifier
-	 * @param nomClient : le nom du client à modifier
-	 * @param prenomClient : le prénom du client à modifier
-	 * @param adresseClient : l'adresse du client à modifier
-	 * @param telephoneClient : le numéro de téléphone du client à modifier
-	 * @param emailClient : l'adresse email du client à modifier
+	 * @param idt : l'identifiant du client à modifier
+	 * @param civilite : la civilité du client à modifier
+	 * @param nom : le nom du client à modifier
+	 * @param prenom : le prénom du client à modifier
+	 * @param rue : la rue du client à modifier
+	 * @param codePostal : le code postal du client à modifier
+	 * @param ville : la ville du client à modifier
+	 * @param telephone : le numéro de téléphone du client à modifier
+	 * @param email : l'adresse email du client à modifier
 	 * @param nomEntreprise : le nom de l'entreprise du client à modifier
 	 */
 	@Override
-	public void modifierClient(ConseillerClientele conseiller, int idClient, String civiliteClient, String nomClient,
-			String prenomClient, Adresse adresseClient, String telephoneClient, String emailClient,
+	public void modifierClient(int id, String civilite, String nom,
+			String prenom, String rue, String codePostal, String ville, String telephone, String email,
 			String nomEntreprise) {
 		// TODO partie service
 		
 		// partie DAO
-		idao.modifierClient(conseiller, idClient, civiliteClient, nomClient, prenomClient, adresseClient, telephoneClient, emailClient, nomEntreprise);
+		idao.modifierClient(id, civilite, nom, prenom, rue, codePostal, ville, telephone, email, nomEntreprise);
 	}
 
 	/**

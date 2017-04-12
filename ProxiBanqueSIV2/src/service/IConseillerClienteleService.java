@@ -20,6 +20,9 @@ import service.exceptions.SoldeInsuffisantException;
  */
 public interface IConseillerClienteleService {
 
+	/** S'AUTHENTIFIER */
+	public ConseillerClientele authentifier(String login, String password);
+	
 	/** LISTER CLIENTS */
 	public Collection<Client> listerClient (ConseillerClientele conseiller);
 	
@@ -29,9 +32,9 @@ public interface IConseillerClienteleService {
 	//public boolean creerClient (Conseiller conseiller, String nom, String prenom, String civilite, String numeroClient);
 	
 	/** MODIFIER CLIENT */
-	public void modifierClient(ConseillerClientele conseiller, int idClient, String civiliteClient, String nomClient, String prenomClient, Adresse adresseClient, String telephoneClient, String emailClient, String nomEntreprise);
+	public void modifierClient(int id, String civilite, String nom, String prenom, String rue, String codePostal, String ville, String telephone, String email, String nomEntreprise);
 	
-	/** RECHERHCER CLIENT */
+	/** RECHERCHER CLIENT */
 	public Client chercherClient(int id); // retrouver un client à partir de son id
 	public Collection<Client> chercherParMC(String mc); // chercher clients par mot clé (par nom)
 	//public SortedSet<Client> chercherParMC(String mc); // chercher clients par mot clé (par nom)

@@ -17,6 +17,11 @@ public class ConseillerClientele extends Personne {
 	private int idConseiller;
 	
 	/**
+	 * Le password d'authentification du conseiller
+	 */
+	private String password;
+	
+	/**
 	 * L'agence à laquelle est affectée le conseiller
 	 */
 	private Agence monAgence;
@@ -77,6 +82,22 @@ public class ConseillerClientele extends Personne {
 	 */
 	public void setIdConseiller(int idConseiller) {
 		this.idConseiller = idConseiller;
+	}
+
+	/**
+	 * Getter de l'attribut de classe password
+	 * @return le mot de passe du conseiller
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * Setter de l'attribut de classe password
+	 * @param password : le mot de passe du conseiller
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	/**

@@ -9,6 +9,13 @@ public class ClientEntreprise extends Client {
 
 	/**
 	 * Constructeur de la classe ClientEntreprise
+	 */
+	public ClientEntreprise() {
+		super();
+	}
+	
+	/**
+	 * Constructeur de la classe ClientEntreprise
 	 * @param idClient : l'identifiant du client
 	 * @param civilite : la civilité du client
 	 * @param nomClient : le nom du client
@@ -20,6 +27,7 @@ public class ClientEntreprise extends Client {
 	 */
 	public ClientEntreprise(int idClient, String civilite, String nomClient, String prenomClient, Adresse adresseClient, String telephoneClient, String emailClient, String nomEntreprise) {
 		super(idClient, civilite, nomClient, prenomClient, adresseClient, telephoneClient, emailClient, nomEntreprise);
+		this.setIsEntreprise(true);
 	}
 
 }

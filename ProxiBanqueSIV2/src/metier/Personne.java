@@ -104,7 +104,7 @@ public abstract class Personne {
 
 	/**
 	 * Setter de l'attribut civilite
-	 * @param nom : la civilité de la personne
+	 * @param civilite : la civilité de la personne
 	 */
 	public void setCivilite(String civilite) {
 		this.civilite = civilite;
