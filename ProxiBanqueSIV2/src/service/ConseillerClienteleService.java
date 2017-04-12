@@ -1,6 +1,7 @@
 package service;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import dao.Dao;
 import dao.IDao;
@@ -53,7 +54,6 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 	 */
 	@Override
 	public void ajouterClient(ConseillerClientele conseiller, Client client) throws NombreMaxClientsParConseillerException {
-		// TODO partie service
 		if (conseiller.getMesClients().size() < 10) {
 			// Ajout du client à la collection de clients du conseiller clientèle
 			conseiller.getMesClients().add(client);
@@ -62,7 +62,8 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 			conseiller.getMonAgence().getClientsAgence().add(client);
 		} else throw new NombreMaxClientsParConseillerException("VOUS GEREZ DEJA 10 CLIENTS : NOMBRE MAXIMUM DE CLIENTS QUE VOUS POUVEZ GERER ATTEINT");
 		
-		// TODO partie DAO
+		// Ajout du client en base de donnée
+		idao.ajouterClient(client);
 	}
 
 	/**
@@ -79,13 +80,24 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 	 * @param nomEntreprise : le nom de l'entreprise du client à modifier
 	 */
 	@Override
-	public void modifierClient(int id, String civilite, String nom,
-			String prenom, String rue, String codePostal, String ville, String telephone, String email,
-			String nomEntreprise) {
+	public void modifierClient(ConseillerClientele conseiller, Client client //int id, String civilite, String nom,
+		//	String prenom, String rue, String codePostal, String ville, String telephone, String email,
+			//String nomEntreprise
+			) {
 		// TODO partie service
+		Collection<Client> collectionClientsConseiller = conseiller.getMesClients();
 		
-		// partie DAO
-		idao.modifierClient(id, civilite, nom, prenom, rue, codePostal, ville, telephone, email, nomEntreprise);
+		Iterator<Client> it=collectionClientsConseiller.iterator();
+		while (it.hasNext()) {
+			Client c = (Client) it.next();
+			if (c.getIdClient() == client.getIdClient()) {
+				collectionClientsConseiller.remove(c);
+			}
+		}
+		collectionClientsConseiller.add(client);
+		
+		// Ajout du client en base de donnée
+		idao.modifierClient(client);
 	}
 
 	/**
@@ -115,29 +127,37 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 	 */
 	@Override
 	public void supprimerClient(ConseillerClientele conseiller, Client client) {
-		// TODO partie service
+		// Suppression du compte courant du client et de sa carte associée
+		if (client.getCompteCourant() != null) {
+			if (client.getCompteCourant().getCarteCompte() != null) {
+				client.getCompteCourant().setCarteCompte(null);
+			}
+			client.setCompteCourant(null);
+		}
 		
-		// Suppression des cartes du client
-		client.getCompteCourant().setCarteCompte(null);
-		client.getCompteEpargne().setCarteCompte(null);
-		// Suppression des comptes du client
-		client.setCompteCourant(null);
-		client.setCompteEpargne(null);
+		// Suppression du compte epargne du client et de sa carte associée
+		if (client.getCompteEpargne() != null) {
+			if (client.getCompteEpargne().getCarteCompte() != null) {
+				client.getCompteEpargne().setCarteCompte(null);
+			}
+			client.setCompteEpargne(null);
+		}
+		
 		// Suppression du client de la collection de clients du conseiller clientèle
-		for (Client c : conseiller.getMesClients()) {
-			if (client.equals(c)) {
-				c=null;
-			}
-		}
-		// Suppression du client de la collection de clients de l'agence
-		for (Client c : conseiller.getMonAgence().getClientsAgence()) {
-			if (client.equals(c)) {
-				c=null;
-			}
-		}
+		Collection<Client> collectionClientsConseiller = conseiller.getMesClients();
+		collectionClientsConseiller.remove(client);
+		conseiller.setMesClients(collectionClientsConseiller);
 		
-		// TODO partie DAO
+		// Suppression du client de la collection de clients de l'agence
+	//	Agence agence = conseiller.getMonAgence();
+	//	Collection<Client> collectionClientsAgence = agence.getClientsAgence();
+	//	collectionClientsAgence.remove(client);
+	//	agence.setClientsAgence(collectionClientsConseiller);
+		
+		// Suppression du client en base de donnée
+		idao.supprimerClient(client.getIdClient());
 	}
+	
 
 	/**
 	 * Méthode permettant de faire un virement entre deux comptes bancaires

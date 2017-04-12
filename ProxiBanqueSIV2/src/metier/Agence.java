@@ -1,8 +1,8 @@
 package metier;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
@@ -35,12 +35,12 @@ public class Agence {
 	/**
 	 * Les clients de l'Agence
 	 */
-	private SortedSet<Client> clientsAgence;
+	private Collection<Client> clientsAgence;
 	
 	/**
 	 * Les conseillers clientèle de l'Agence
 	 */
-	private SortedSet<ConseillerClientele> conseillersClienteleAgence;
+	private Collection<ConseillerClientele> conseillersClienteleAgence;
 
 	/**
 	 * Constructeur de la classe Agence sans argument
@@ -142,7 +142,7 @@ public class Agence {
 	 * Getter de l'attribut de classe clientsAgence
 	 * @return les clients de l'agence bancaire
 	 */
-	public SortedSet<Client> getClientsAgence() {
+	public Collection<Client> getClientsAgence() {
 		return clientsAgence;
 	}
 
@@ -150,7 +150,7 @@ public class Agence {
 	 * Setter de l'attribut de classe clientsAgence
 	 * @param clientsAgence : les clients de l'agence bancaire
 	 */
-	public void setClientsAgence(SortedSet<Client> clientsAgence) {
+	public void setClientsAgence(Collection<Client> clientsAgence) {
 		this.clientsAgence = clientsAgence;
 	}
 
@@ -158,7 +158,7 @@ public class Agence {
 	 * Getter de l'attribut de classe conseillersClientsAgence
 	 * @return les conseillers clients de l'agence
 	 */
-	public SortedSet<ConseillerClientele> getConseillersClienteleAgence() {
+	public Collection<ConseillerClientele> getConseillersClienteleAgence() {
 		return conseillersClienteleAgence;
 	}
 
@@ -166,7 +166,7 @@ public class Agence {
 	 * Getter de l'attribut de classe conseillersClientsAgence
 	 * @param conseillersClienteleAgence : les conseillers clients de l'agence
 	 */
-	public void setConseillersClienteleAgence(SortedSet<ConseillerClientele> conseillersClienteleAgence) {
+	public void setConseillersClienteleAgence(Collection<ConseillerClientele> conseillersClienteleAgence) {
 		this.conseillersClienteleAgence = conseillersClienteleAgence;
 	}
 

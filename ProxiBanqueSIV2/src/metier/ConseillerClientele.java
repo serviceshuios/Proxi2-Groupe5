@@ -1,7 +1,7 @@
 package metier;
 
+import java.util.Collection;
 import java.util.Comparator;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
@@ -34,7 +34,7 @@ public class ConseillerClientele extends Personne {
 	/**
 	 * Les clients affectés à un conseiller clientèle
 	 */
-	private SortedSet<Client> mesClients;
+	private Collection<Client> mesClients;
 	
 	/**
 	 * Constructeur de la classe ConseillerClientele avec arguments
@@ -136,7 +136,7 @@ public class ConseillerClientele extends Personne {
 	 * Getter de l'attribut de classe mesClients
 	 * @return les clients gérés par le conseiller clientèle
 	 */
-	public SortedSet<Client> getMesClients() {
+	public Collection<Client> getMesClients() {
 		return mesClients;
 	}
 
@@ -144,7 +144,7 @@ public class ConseillerClientele extends Personne {
 	 * Setter de l'attribut de classe mesClients
 	 * @param mesClients : les clients gérés par le conseiller clientèle
 	 */
-	public void setMesClients(SortedSet<Client> mesClients) {
+	public void setMesClients(Collection<Client> mesClients) {
 		this.mesClients = mesClients;
 	}
 

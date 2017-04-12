@@ -28,11 +28,6 @@
 					<th>CIVILITE</th>
 					<th>NOM</th>
 					<th>PRENOM</th>
-					<th>ADRESSE</th>
-					<th>CODE POSTAL</th>
-					<th>VILLE</th>
-					<th>TELEPHONE</th>
-					<th>EMAIL</th>
 					<th>NOM ENTREPRISE</th>
 					<th>ACTIONS</th>
 				</tr>
@@ -44,14 +39,9 @@
 						<td><c:out value="${c.getCivilite()}"></c:out></td>
 						<td><c:out value="${c.getNom()}"></c:out></td>
 						<td><c:out value="${c.getPrenom()}"></c:out></td>
-						<td><c:out value="${c.getAdresse().getRue()}"></c:out></td>
-						<td><c:out value="${c.getAdresse().getCodePostal()}"></c:out></td>
-						<td><c:out value="${c.getAdresse().getVille()}"></c:out></td>
-						<td><c:out value="${c.getTelephone()}"></c:out></td>
-						<td><c:out value="${c.getEmail()}"></c:out></td>
 						<td><c:out value="${c.getNomEntreprise()}"></c:out></td>
 						<td>
-						<a href="DetailsClient?id=<c:out value="${c.getIdClient()}"></c:out>">Détails</a> |
+						<a href="DetailsClientServlet?id=<c:out value="${c.getIdClient()}"></c:out>">Détails</a> |
 						    <a href="ModifierClientServlet?action=afficher&id=<c:out value="${c.getIdClient()}"></c:out>">Modifier</a> |
 						    <a href="SupprimerClientServlet?id=<c:out value="${c.getIdClient()}"></c:out>">Supprimer</a></td>
 					</tr>

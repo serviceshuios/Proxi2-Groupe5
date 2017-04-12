@@ -2,7 +2,6 @@ package service;
 
 import java.util.Collection;
 
-import metier.Adresse;
 import metier.Client;
 import metier.Compte;
 import metier.ConseillerClientele;
@@ -32,8 +31,9 @@ public interface IConseillerClienteleService {
 	//public boolean creerClient (Conseiller conseiller, String nom, String prenom, String civilite, String numeroClient);
 	
 	/** MODIFIER CLIENT */
-	public void modifierClient(int id, String civilite, String nom, String prenom, String rue, String codePostal, String ville, String telephone, String email, String nomEntreprise);
-	
+	//public void modifierClient(ConseillerClientele conseiller, Client client, int id, String civilite, String nom, String prenom, String rue, String codePostal, String ville, String telephone, String email, String nomEntreprise);
+	public void modifierClient(ConseillerClientele conseiller, Client client);
+
 	/** RECHERCHER CLIENT */
 	public Client chercherClient(int id); // retrouver un client à partir de son id
 	public Collection<Client> chercherParMC(String mc); // chercher clients par mot clé (par nom)

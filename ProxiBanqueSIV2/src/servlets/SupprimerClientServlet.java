@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import metier.Client;
 import metier.ConseillerClientele;
@@ -16,7 +17,7 @@ import service.IConseillerClienteleService;
 /**
  * Servlet implementation class MaServlet
  */
-@WebServlet("/SupprimerClient")
+@WebServlet("/SupprimerClientServlet")
 public class SupprimerClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private IConseillerClienteleService service = new ConseillerClienteleService();
@@ -26,7 +27,6 @@ public class SupprimerClientServlet extends HttpServlet {
 	 */
 	public SupprimerClientServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -39,18 +39,26 @@ public class SupprimerClientServlet extends HttpServlet {
 		
 		// 1- récupérer les paramètres utilisateur
 		int id = Integer.parseInt(request.getParameter("id"));
-		ConseillerClientele conseiller = (ConseillerClientele) request.getAttribute("conseillerClientele");
+		//ConseillerClientele conseiller = (ConseillerClientele) request.getAttribute("conseillerClientele");
+		HttpSession session = request.getSession();
+		ConseillerClientele conseiller = (ConseillerClientele) session.getAttribute("conseillerClientele");
 		
 		// 2- traitements avec la couche service
 		Client client = service.chercherClient(id);
 		String prenom = client.getPrenom();
 		String nom = client.getNom();
 		
-		service.supprimerClient(conseiller, client);
+		try {
+			service.supprimerClient(conseiller, client);
 
-		// 3- préparation envoi
-		request.setAttribute("message", "Le client " + prenom + " " + nom + " a été supprimé de la base de donnée.");
-		
+			// 3- préparation envoi
+			request.setAttribute("message", "Le client " + prenom + " " + nom + " a été supprimé de la base de donnée.");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		// 4- envoi des éléments à la JSP
 		request.getRequestDispatcher("ListerClientsServlet").forward(request, response);
 

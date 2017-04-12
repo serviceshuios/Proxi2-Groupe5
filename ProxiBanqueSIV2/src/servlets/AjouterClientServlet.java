@@ -8,17 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metier.Client;
-import service.ClientService;
-import service.IClientService;
-
 /**
  * Servlet implementation class AjoutClientServlet
  */
 @WebServlet("/AjouterClientServlet")
 public class AjouterClientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private IClientService service = new ClientService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,6 +31,7 @@ public class AjouterClientServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		// 1- récupérer les paramètres utilisateur
+		
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		int age = Integer.parseInt(request.getParameter("age"));

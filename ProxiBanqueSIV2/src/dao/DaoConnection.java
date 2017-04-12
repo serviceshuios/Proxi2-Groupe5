@@ -14,18 +14,20 @@ public class DaoConnection {
 	
 	// Connection
 	public static Connection getConnection() {
+		
 		if (connection == null) {
 			try {	
 				// charger le pilote
 				Class.forName(PILOTE);				// driver correpondant à mon type de BDD (voir javadoc)
 				// créer la connexion
-				Connection connection = DriverManager.getConnection(URL, USER, PWD); // adresse de ma base de données + login + mdp
+				connection = DriverManager.getConnection(URL, USER, PWD); // adresse de ma base de données + login + mdp
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
 			
 		} 
-			return connection;
+		
+		return connection;
 
 	}
 	

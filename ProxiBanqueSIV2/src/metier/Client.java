@@ -54,8 +54,8 @@ public abstract class Client extends Personne {
 	 */
 	public Client() {
 		super();
-		this.compteCourant = new CompteCourant();
-		this.compteEpargne = new CompteEpargne();
+		//this.compteCourant = new CompteCourant();
+		//this.compteEpargne = new CompteEpargne();
 		//this.compteCourant = null;
 		//this.compteEpargne = null;
 		//this.listePlacement = new ArrayList<Placement>();
@@ -73,8 +73,8 @@ public abstract class Client extends Personne {
 	public Client(int idClient, String civilite, String nomClient, String prenomClient, Adresse adresseClient, String telephoneClient, String emailClient) {
 		super(civilite, nomClient, prenomClient, adresseClient, telephoneClient, emailClient);
 		this.idClient = idClient;
-		this.compteCourant = new CompteCourant();
-		this.compteEpargne = new CompteEpargne();
+		//this.compteCourant = new CompteCourant();
+		//this.compteEpargne = new CompteEpargne();
 		//this.compteCourant = null;
 		//this.compteEpargne = null;
 		//this.listePlacement = new ArrayList<Placement>();
@@ -95,8 +95,8 @@ public abstract class Client extends Personne {
 		this.idClient = idClient;
 		this.isEntreprise = true;
 		this.nomEntreprise = nomEntreprise;
-		this.compteCourant = new CompteCourant();
-		this.compteEpargne = new CompteEpargne();
+		//this.compteCourant = new CompteCourant();
+		//this.compteEpargne = new CompteEpargne();
 		//this.compteCourant = null;
 		//this.compteEpargne = null;
 		//this.listePlacement = new ArrayList<Placement>();

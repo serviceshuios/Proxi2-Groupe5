@@ -18,7 +18,7 @@ public abstract class Compte {
 	/**
 	 * L'identifiant du compte.
 	 */
-	private int idCompte;
+	private int idCompte=0;
 	
 	/**
 	 * Le solde du compte
@@ -187,7 +187,7 @@ public abstract class Compte {
 	@Override
 	public String toString() {
 		return "Compte n° " + idCompte + " : Solde = " + soldeCompte + ", dateOuvertureCompte="
-				+ dateOuvertureCompte + "]";
+				+ dateOuvertureCompte;
 	}
 	
 }

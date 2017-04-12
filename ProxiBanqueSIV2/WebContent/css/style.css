@@ -67,7 +67,6 @@ span {
 /*---------------------------------------------------------*/
 @media screen and (max-width:680px) {
 	body {
-		background-color: orange;
 		width: 100%;
 		margin: 0 auto;				/* mise à 0 de toutes les marges par défaut */
 	}
@@ -99,7 +98,6 @@ span {
 /*----------------------------------------------------------*/
 @media screen and (min-width:681px) and (max-width:1279px) {
 	body {
-		background-color: #17c4e8;
 		width: 100%;
 		margin: 0 auto;				/* mise à 0 de toutes les marges par défaut */
 	}
@@ -144,7 +142,6 @@ span {
 /*----------------------------------------------------------*/
 @media screen and (min-width:1280px) {
 	body {
-		background-color: #8bd672;
 		width: 960px;
 		margin: 0 auto;		/* mise à 0 de toutes les marges par défaut */
 	}

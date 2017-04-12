@@ -58,7 +58,7 @@ public class AuthentificationServlet extends HttpServlet {
 			request.getRequestDispatcher("ListerClientsServlet").forward(request, response);
 			
 		} else {
-			request.getRequestDispatcher("/authentificationConseiller.html").forward(request, response);
+			request.getRequestDispatcher("/index.html").forward(request, response);
 		}
 	}
 

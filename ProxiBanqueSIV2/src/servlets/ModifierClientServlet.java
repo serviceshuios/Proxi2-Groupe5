@@ -47,7 +47,6 @@ public class ModifierClientServlet extends HttpServlet {
 		
 		if (request.getParameter("action").equals("afficher")) {
 			// 1- récupérer les paramètres utilisateur
-
 			int id = Integer.parseInt(request.getParameter("id"));
 			
 			// 2- traitements avec la couche service		
@@ -72,7 +71,7 @@ public class ModifierClientServlet extends HttpServlet {
 		if (request.getParameter("action").equals("modifier")) {
 			// 1- récupérer les paramètres utilisateur
 			int id = Integer.parseInt(request.getParameter("id"));
-			String civilite = request.getParameter("civilite");
+			//String civilite = request.getParameter("civilite");
 			String nom = request.getParameter("nom");
 			String prenom = request.getParameter("prenom");
 			String rue = request.getParameter("rue");
@@ -82,13 +81,23 @@ public class ModifierClientServlet extends HttpServlet {
 			String email = request.getParameter("email");
 			String nomEntreprise = request.getParameter("entreprise");
 			
-			// 2- traitements avec la couche service		
-			service.modifierClient(id, civilite, nom, prenom, rue, codePostal, ville, telephone, email, nomEntreprise);
-			Client c = service.chercherClient(id);
+			// 2- traitements avec la couche service
+			Client client = service.chercherClient(id);
+			client.setNom(nom);
+			client.setPrenom(prenom);
+			client.getAdresse().setRue(rue);
+			client.getAdresse().setCodePostal(codePostal);
+			client.getAdresse().setVille(ville);
+			client.setTelephone(telephone);
+			client.setEmail(email);
+			client.setNomEntreprise(nomEntreprise);
+			
+			service.modifierClient(conseiller, client//, id, civilite, nom, prenom, rue, codePostal, ville, telephone, email, nomEntreprise
+					);
 			
 			// 3- préparation envoi
-			request.setAttribute("conseillerClientele", conseiller);
-			request.setAttribute("message", "Les informations du client " + c.getPrenom() + " " + c.getNom() + " ont été modifiées en base de donnée.");
+			//request.setAttribute("conseillerClientele", conseiller);
+			request.setAttribute("message", "Les informations du client " + client.getPrenom() + " " + client.getNom() + " ont été modifiées en base de donnée.");
 			
 			// 4- envoi
 			request.getRequestDispatcher("ListerClientsServlet").forward(request, response);

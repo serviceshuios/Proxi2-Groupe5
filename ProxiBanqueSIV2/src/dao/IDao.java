@@ -16,8 +16,7 @@ public interface IDao {
 	
 	public void ajouterClient(Client c);
 	
-	public void modifierClient(int id, String civilite, String nom, String prenom, String rue, String codePostal,
-			String ville, String telephone, String email, String nomEntreprise);
+	public void modifierClient(Client client);
 	
 	public Client chercherClient(int id); // retrouver un client à partir de son id
 	
