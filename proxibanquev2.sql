@@ -300,41 +300,41 @@ ALTER TABLE `gerants`
 -- Contraintes pour la table `agence`
 --
 ALTER TABLE `agence`
-  ADD CONSTRAINT `FK_agence_idGerant` FOREIGN KEY (`idGerant`) REFERENCES `gerants` (`idGerant`);
+  ADD CONSTRAINT `FK_agence_idGerant` FOREIGN KEY (`idGerant`) REFERENCES `gerants` (`idGerant`) ON DELETE SET NULL;
 
 --
 -- Contraintes pour la table `cartebancaire`
 --
 ALTER TABLE `cartebancaire`
-  ADD CONSTRAINT `FK_carteBancaire_idClient` FOREIGN KEY (`idClient`) REFERENCES `clients` (`idClient`);
+  ADD CONSTRAINT `FK_carteBancaire_idClient` FOREIGN KEY (`idClient`) REFERENCES `clients` (`idClient`)ON DELETE SET NULL;
 
 --
 -- Contraintes pour la table `clients`
 --
 ALTER TABLE `clients`
-  ADD CONSTRAINT `FK_clients_idCompteCourant` FOREIGN KEY (`idCompteCourant`) REFERENCES `comptecourant` (`idCompteCourant`),
-  ADD CONSTRAINT `FK_clients_idCompteEpargne` FOREIGN KEY (`idCompteEpargne`) REFERENCES `compteepargne` (`idCompteEpargne`),
-  ADD CONSTRAINT `FK_clients_idConseiller` FOREIGN KEY (`idConseiller`) REFERENCES `conseillers` (`idConseiller`),
-  ADD CONSTRAINT `FK_clients_numeroCarte` FOREIGN KEY (`numeroCarte`) REFERENCES `cartebancaire` (`numeroCarte`),
-  ADD CONSTRAINT `FK_clients_idAgence` FOREIGN KEY (`idAgence`) REFERENCES `agence` (`idAgence`);
+  ADD CONSTRAINT `FK_clients_idCompteCourant` FOREIGN KEY (`idCompteCourant`) REFERENCES `comptecourant` (`idCompteCourant`)ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_clients_idCompteEpargne` FOREIGN KEY (`idCompteEpargne`) REFERENCES `compteepargne` (`idCompteEpargne`)ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_clients_idConseiller` FOREIGN KEY (`idConseiller`) REFERENCES `conseillers` (`idConseiller`)ON DELETE SET NULL,
+  ADD CONSTRAINT `FK_clients_numeroCarte` FOREIGN KEY (`numeroCarte`) REFERENCES `cartebancaire` (`numeroCarte`)ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_clients_idAgence` FOREIGN KEY (`idAgence`) REFERENCES `agence` (`idAgence`) ON DELETE SET NULL;
 
 --
 -- Contraintes pour la table `comptecourant`
 --
 ALTER TABLE `comptecourant`
-  ADD CONSTRAINT `FK_compteCourant_idClient` FOREIGN KEY (`idClient`) REFERENCES `clients` (`idClient`);
+  ADD CONSTRAINT `FK_compteCourant_idClient` FOREIGN KEY (`idClient`) REFERENCES `clients` (`idClient`)ON DELETE SET NULL;
 
 --
 -- Contraintes pour la table `compteepargne`
 --
 ALTER TABLE `compteepargne`
-  ADD CONSTRAINT `FK_compteEpargne_idClient` FOREIGN KEY (`idClient`) REFERENCES `clients` (`idClient`);
+  ADD CONSTRAINT `FK_compteEpargne_idClient` FOREIGN KEY (`idClient`) REFERENCES `clients` (`idClient`)ON DELETE SET NULL;
 
 --
 -- Contraintes pour la table `conseillers`
 --
 ALTER TABLE `conseillers`
-  ADD CONSTRAINT `FK_conseillers_idGerant` FOREIGN KEY (`idGerant`) REFERENCES `gerants` (`idGerant`);
+  ADD CONSTRAINT `FK_conseillers_idGerant` FOREIGN KEY (`idGerant`) REFERENCES `gerants` (`idGerant`)ON DELETE SET NULL;
   /*
   ADD CONSTRAINT `FK_conseillers_login` FOREIGN KEY (`login`) REFERENCES `authentification` (`login`);*/
 
@@ -342,7 +342,7 @@ ALTER TABLE `conseillers`
 -- Contraintes pour la table `gerants`
 --
 ALTER TABLE `gerants`
-  ADD CONSTRAINT `FK_gerants_idAgence` FOREIGN KEY (`idAgence`) REFERENCES `agence` (`idAgence`);/*
+  ADD CONSTRAINT `FK_gerants_idAgence` FOREIGN KEY (`idAgence`) REFERENCES `agence` (`idAgence`)ON DELETE SET NULL;/*
   ADD CONSTRAINT `FK_gerants_login` FOREIGN KEY (`login`) REFERENCES `authentification` (`login`);*/
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
