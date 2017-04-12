@@ -7,8 +7,11 @@ import org.junit.Test;
 
 import dao.Dao;
 import metier.Adresse;
+import metier.Agence;
 import metier.Client;
+
 import metier.ClientParticulier;
+import metier.ConseillerClientele;
 import service.ConseillerClienteleService;
 
 public class DaoTest {
@@ -31,10 +34,30 @@ public class DaoTest {
 		
 		modif.modifierClient(1,"M","Le Gal","Vincent", "rue B", "69001", "Villeurbanne", "0707070707", "legalvince@aapo.fr", null); //Appel la fonction ModifierClient de DAO
 		
-		Assert.assertEquals(true,modif.chercherClient(1)!=clientVincentL);
+		Assert.assertEquals(true,modif.chercherClient(1).getAdresse() !=clientVincentL.getAdresse());
 		
 	}
 	
+	
+	@Test
+	public void testListerClient(){
+		
+		Dao list = new Dao();
+		
+		ConseillerClientele cons = new ConseillerClientele(1,"M","JAFFRE","Guy");
+		
+		Client clientVincentL = new ClientParticulier(1,"M","Le Gal","Vincent", new Adresse("10, Rue de la Gare", "69006", "LYON"),"0645647894","legalvince@aapo.fr");
+		Client clientStephane = new ClientParticulier(1,"M","Berny","Stephane", new Adresse("20, Rue de la fontaine", "69011", "LYON"),"123654789","sberny@aapo.fr");
+			
+		//list.listerClientsConseiller(cons);
+		
+		
+		list.listerClientsConseiller(cons).add(clientStephane);
+		list.listerClientsConseiller(cons).add(clientVincentL);
+		
+		Assert.assertEquals(true,list.listerClientsConseiller(cons).size() == 2);
+		
+	}
 	
 	
 
