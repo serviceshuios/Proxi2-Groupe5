@@ -53,7 +53,7 @@
 				<p><%=message%></p>
 			<%}%>
 			
-			<p><a href="ajouterClient.html">Ajouter un nouveau client</a></p>
+			<p><a href="ajouterClient.jsp">Ajouter un nouveau client</a></p>
 		</div>
 		
 	</body>

@@ -59,7 +59,7 @@ public class ConseillerClienteleService implements IConseillerClienteleService {
 			conseiller.getMesClients().add(client);
 
 			// Ajout du client à la collection de clients de l'agence
-			conseiller.getMonAgence().getClientsAgence().add(client);
+			//conseiller.getMonAgence().getClientsAgence().add(client);
 		} else throw new NombreMaxClientsParConseillerException("VOUS GEREZ DEJA 10 CLIENTS : NOMBRE MAXIMUM DE CLIENTS QUE VOUS POUVEZ GERER ATTEINT");
 		
 		// Ajout du client en base de donnée
