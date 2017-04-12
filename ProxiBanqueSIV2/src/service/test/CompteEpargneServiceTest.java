@@ -1,10 +1,5 @@
 package service.test;
 
-<<<<<<< HEAD
-=======
-import static org.junit.Assert.*;
-
->>>>>>> branch 'master' of https://github.com/serviceshuios/Proxi2-Groupe5.git
 import java.util.Date;
 
 import org.junit.Assert;
